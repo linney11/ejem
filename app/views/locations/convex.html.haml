@@ -1,0 +1,25 @@
+%h1.title Convex Hull
+
+%table#table
+  %thead
+    %tr
+      %th Name
+      %th Latitude
+      %th Longitude
+      %th Description
+      %th
+      %th
+  %tbody
+    - @convexPoints.each do |location|
+      %tr
+        %td= link_to location.name, location_path(location)
+        %td= location.latitude
+        %td= location.longitude
+        %td= location.description
+
+%p= label 'Perimeter: ', 'Perimeter: '+@perimeter.to_s + 'm'
+%p= label 'Home: ', 'The farest Ubications to your home is: '+@locmax.name
+
+
+%p= show_flash
+= link_to 'Back to location list', locations_path

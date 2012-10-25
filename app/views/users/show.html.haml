@@ -1,0 +1,13 @@
+%h1.title Existing Location
+
+= form_tag location_path(@user), :method => :put do
+
+  = label :user, :name, 'Name: '+ @user.name
+
+  = label :user, :latitude, 'Latitude: '+ @user.latitude.to_s
+
+  = label :user, :longitude, 'Longitude: '+ @user.longitude.to_s
+
+  = label :user, :description, 'Description: '+ @user.description
+
+%p= link_to 'Back to location list', locations_path

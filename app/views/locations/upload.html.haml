@@ -1,0 +1,29 @@
+%h1.title Upload File
+
+= form_tag locations_upload_path, :method => :post, :enctype=>"multipart/form-data" do
+ = file_field_tag :file
+ = submit_tag 'Upload'
+
+-if !@file.nil?
+ %table#table
+  %thead
+   %tr
+    %th Name
+    %th Latitude
+    %th Longitude
+    %th Description
+   %tbody
+   - @vec.each do |location|
+    %tr
+     %td= link_to location.name, location_path(location)
+     %td= location.latitude
+     %td= location.longitude
+     %td= location.description
+
+
+%p= show_flash
+
+%p= link_to 'Back to location list', locations_path
+
+
+

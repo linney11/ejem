@@ -1,0 +1,27 @@
+%h1.title Upload File Json
+
+.map
+ %div#map
+
+ %p= show_flash
+ %label{:for=>'span'} time span
+ %select#span{ :name=>'span'}
+  %option{:value => '15'}15
+  %option{:value => '30'}30
+  %option{:value => '60', :selected=> true}60
+  %option{:value => '120'}120
+  %option{:value => '240'}240
+ %input{:type => 'button', :id =>"start", :value=> 'start', :onclick=>'starAnimation()'}
+ %input{:type => 'button', :id =>"stop", :value=> 'stop', :onclick=>'stopAnimation' }
+
+
+
+%p= link_to 'Back to users list', users_path
+
+
+= javascript_include_tag '/assets/maps/OpenLayers'
+= javascript_include_tag '/assets/maps/animation'
+:javascript
+  //initMap($("#gps").val());
+
+
